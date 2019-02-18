@@ -54,7 +54,7 @@ public class CYT_010 {
 	@Test(priority = 1)
 	public void cleartext() throws InterruptedException {
 		adminchangepss.sendUserName("admin");
-		adminchangepss.sendPassword("123456");
+		adminchangepss.sendPassword("12345");
 		adminchangepss.clickLoginBtn();
 		adminchangepss.clickpersonaltab();
 
@@ -82,7 +82,7 @@ public class CYT_010 {
 		Assert.assertEquals(email, "E-Mail Notifications");
 		
 		adminchangepss.changepassword();
-		adminchangepss.currentpassword("123456");
+		adminchangepss.currentpassword("12345");
 		adminchangepss.newpassword("123456");
 		adminchangepss.confirmnewpassword("123456");
 		adminchangepss.submit();
