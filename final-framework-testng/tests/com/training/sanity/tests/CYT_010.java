@@ -91,7 +91,7 @@ public class CYT_010 {
 		System.out.println("Alert message is:" + actual_msg);
 		driver.switchTo().alert().accept();
 		Assert.assertEquals(actual_msg, "The password was modified");
-		screenShot.captureScreenShot("Fifth");
+		screenShot.captureScreenShot("Screen5");
 		
 		
 		
