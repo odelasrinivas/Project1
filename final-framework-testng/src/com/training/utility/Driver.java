@@ -9,8 +9,8 @@ public interface Driver {
 	
 	// PATH 
 	String CHROME_PATH="C:\\Srinivas odela\\Selenium\\Browsers Drivers\\chromedriver_win32\\chromedriver.exe";
-	String FIREFOX_PATH ="C:\\Srinivas odela\\Selenium\\Browsers Drivers\\geckodriver-v0.24.0-win64\\geckodriver.exe";
-	String IE_PATH ="C:\\Srinivas odela\\Selenium\\Browsers Drivers\\IEDriverServer_x64_3.14.0\\IEDriverServer.exe";
+	String FIREFOX_PATH ="C:\\Srinivas odela\\Selenium\\Browsers Drivers\\Firefox Setup 38.0.1\\Firefox Setup 38.0.1.exe";
+	String IE_PATH ="C:\\Srinivas odela\\Selenium\\Browsers Drivers\\IEDriverServer_Win32_3.14.0\\IEDriverServer.exe";
 	String PHANTOM_PATH="";
 	
 }
