@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 public class Admin_Changepss {
 
@@ -33,43 +34,51 @@ public class Admin_Changepss {
 	@FindBy(xpath="//input[@value='Submit']")
 	private WebElement submitbtn;
 	
-	
+	//enter the username
 	public void sendUserName(String userName) {
 		this.userName.clear();
 		this.userName.sendKeys(userName);
 	}
-
+	//enter the password
 	public void sendPassword(String password) {
 		this.password.clear();
 		this.password.sendKeys(password);
 	}
-
+//click on login button
 	public void clickLoginBtn() {
 		this.loginBtn.click();
 	}
-	
+	//1. Click on Personal Link
 	public void clickpersonaltab() {
 		this.personaltab.click();
 
 	}
-	
+	//2. Click on Change password link
 	public void changepassword() {
 		this.changepassword.click();
 	}
+	//3. Enter Valid credentials in Current Password textbox
 	public void currentpassword(String username) {
 		this.currentpassword.sendKeys(username);
 	}
-	
+	//4. Enter Valid credentials in New Password textbox
 	public void newpassword(String password) {
 		this.newpassword.sendKeys(password);
 		
 	}
+	//5. Enter Valid credentials in Confirm new Password textbox
 	public void confirmnewpassword(String confirm) {
 		this.confirmnewpassword.sendKeys(confirm);
 	}
 	
-	public void submit() {
+	//6. Click on Submit button
+	public void submit() throws InterruptedException {
 		this.submitbtn.click();
+		Thread.sleep(2000);
+		String actual_msg = driver.switchTo().alert().getText();
+		System.out.println("Alert message is:" + actual_msg);
+		driver.switchTo().alert().accept();   //7. Click on OK button of pop up window
+		Assert.assertEquals(actual_msg, "The password was modified");
 	}
 	
 }

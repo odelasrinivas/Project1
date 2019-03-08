@@ -48,7 +48,7 @@ public class LoginTests {
 	@Test
 	public void validLoginTest() {
 		loginPOM.sendUserName("admin");
-		loginPOM.sendPassword("admin@123");
+		loginPOM.sendPassword("123456");
 		loginPOM.clickLoginBtn(); 
 		screenShot.captureScreenShot("First");
 	}

@@ -53,10 +53,10 @@ public class CYT_010 {
 
 	@Test(priority = 1)
 	public void cleartext() throws InterruptedException {
-		adminchangepss.sendUserName("admin");
-		adminchangepss.sendPassword("12345");
-		adminchangepss.clickLoginBtn();
-		adminchangepss.clickpersonaltab();
+		adminchangepss.sendUserName("admin");  //enter the admin credentials
+		adminchangepss.sendPassword("12345");  //enter the password
+		adminchangepss.clickLoginBtn();  //click on submit submit button
+		adminchangepss.clickpersonaltab();  //1. Click on Personal Link
 
 		// String profiletext =
 		// driver.findElement(By.xpath("//span[contains(text(),'Profile')]")).getText();
@@ -71,7 +71,7 @@ public class CYT_010 {
 		// Password')]")).getText();
 		// System.out.println("change Text is..." + changetext);
 
-		String changetext = "Change Password";
+		String changetext = "Change Password";  
 		Assert.assertEquals(changetext, "Change Password");
 
 		// String email = driver.findElement(By.xpath("//span[contains(text(),'E-Mail
@@ -81,16 +81,17 @@ public class CYT_010 {
 		String email = "E-Mail Notifications";
 		Assert.assertEquals(email, "E-Mail Notifications");
 		
-		adminchangepss.changepassword();
-		adminchangepss.currentpassword("12345");
-		adminchangepss.newpassword("123456");
-		adminchangepss.confirmnewpassword("123456");
-		adminchangepss.submit();
-		Thread.sleep(2000);
-		String actual_msg = driver.switchTo().alert().getText();
-		System.out.println("Alert message is:" + actual_msg);
-		driver.switchTo().alert().accept();
-		Assert.assertEquals(actual_msg, "The password was modified");
+		adminchangepss.changepassword(); //2. Click on Change password link
+		adminchangepss.currentpassword("12345");  //3. Enter Valid credentials in Current Password textbox
+		adminchangepss.newpassword("123456"); //4. Enter Valid credentials in New Password textbox
+		adminchangepss.confirmnewpassword("123456");  //5. Enter Valid credentials in Confirm new Password textbox
+		adminchangepss.submit();  //6. Click on Submit button
+		/*
+		 * Thread.sleep(2000); String actual_msg = driver.switchTo().alert().getText();
+		 * System.out.println("Alert message is:" + actual_msg);
+		 * driver.switchTo().alert().accept(); Assert.assertEquals(actual_msg,
+		 * "The password was modified");
+		 */
 		screenShot.captureScreenShot("Screen5");
 		
 		

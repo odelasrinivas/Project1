@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 public class Adminvalid {
 private WebDriver driver; 
@@ -33,7 +34,12 @@ private WebDriver driver;
 	public void clickLoginBtn() {
 		this.loginBtn.click(); 
 	}
-	public void clicklogoutbtn() {
+	public void clicklogoutbtn() throws InterruptedException {
 		this.logoutbtn.click();
+		Thread.sleep(3000);
+		String actual_msg = driver.switchTo().alert().getText();
+		System.out.println("Alert message is:" + actual_msg);
+		driver.switchTo().alert().accept();  //5. Click on OK button
+		Assert.assertEquals(actual_msg, "Please confirm to logout");
 	}	
 }

@@ -1,10 +1,15 @@
 package com.training.pom;
 
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 public class Advert {
 	
@@ -35,6 +40,7 @@ public class Advert {
 	 private WebElement txtTitle;
 	@FindBy(name="ad(category)")
 	private WebElement category;
+	
 	@FindBy(name="ad(price)")
 	private WebElement price;
 	@FindBy(xpath="//*[@class='CSS1Compat']")
@@ -55,22 +61,25 @@ public class Advert {
 	 private WebElement tabadvertisement;
 	 
 	 
-	 
+	 //enter the user name
 	 public void txtsendusername(String userName) {
 		 this.txtuserName.clear();
 		 this.txtuserName.sendKeys(userName);
 	 }
+	 //enter the password
 	 public void txtsendpassword(String password) {
 		 this.txtpassword.clear();
 		 this.txtpassword.sendKeys(password);
 	 }
+	 //click on submit button
 	 public void Btnsubmit() {
 		 this.Btnsubmit.click();
 	 }
-	
+	//click on memberlogin
 	public void txtmemberlogin(String memberlogin) {
 		this.txtmemberlogin.sendKeys(memberlogin);
 		}
+	
 	public void buttnsubmit() {
 		this.Buttonsubmit.click();
 	}
@@ -82,7 +91,17 @@ public class Advert {
 	public void txtTitle(String text) {
 	this.txtTitle.sendKeys(text);
 	}
-	 
+	
+	public void catagory() {
+	//	this.catagory();
+		
+		WebElement catagory = driver.findElement(By.name("ad(category)")); // select the Category dropdown under New advertisement screen
+		Select action = new Select(catagory);
+		action.selectByVisibleText("New Category"); // select the New Category under dropdown list on New advertisement screen
+	}
+	
+	
+	 //----------------------------------
 	public void price(String price) {
 		this.price.sendKeys(price);
 	}
@@ -91,19 +110,33 @@ public class Advert {
 	}
 	public void savebutton() {
 		this.savebutton.click();
+		String actual_msgg = driver.switchTo().alert().getText();
+		System.out.println("Alert message is:" + actual_msgg);
+		driver.switchTo().alert().accept();
+		Assert.assertEquals(actual_msgg, "Advertisement inserted");
 	}
 	
-	
-	
-	
-	 public void buttonsubmit() {
+	public void buttonsubmit() {
 		 this.Buttonsubmit.click();
 	 }
 	 public void Remove() {
 		 this.Remove.click();
+		// Alert pop-up message verification here...
+
+			String actual_msg0 = driver.switchTo().alert().getText();
+			System.out.println("Alert message is:" + actual_msg0);
+			driver.switchTo().alert().accept();
+			Assert.assertEquals(actual_msg0, "Remove advertisement?");
+			
 	 }
 	 public void BtnLogout() {
 		 this.BtnLogout.click();
+		 
+		// Alert pop-up message verification here
+			String actual_msg2 = driver.switchTo().alert().getText();
+			System.out.println("Alert message is:" + actual_msg2);
+			driver.switchTo().alert().accept();
+			Assert.assertEquals(actual_msg2, "Please confirm to logout");
 	 }
 	 public void tabPersonal() {
 		 this.tabPersonal.click();
@@ -111,5 +144,6 @@ public class Advert {
 	 public void tabadvertisement() {
 		 this.tabadvertisement.click();
 	 }
+	
 
 }

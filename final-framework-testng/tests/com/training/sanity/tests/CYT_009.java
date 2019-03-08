@@ -56,7 +56,7 @@ public class CYT_009 {
 		cleartext.sendUserName("admin");
 		cleartext.sendPassword("123456");
 		cleartext.clickLoginBtn();
-		cleartext.clickpersonaltab();
+		cleartext.clickpersonaltab();  //1. Click on Personal Link
 
 		// String profiletext =
 		// driver.findElement(By.xpath("//span[contains(text(),'Profile')]")).getText();
@@ -81,18 +81,19 @@ public class CYT_009 {
 		String email = "E-Mail Notifications";
 		Assert.assertEquals(email, "E-Mail Notifications");
 
-		cleartext.clickprofiletab();
-		cleartext.clickchangebtn();
+		cleartext.clickprofiletab();  //2. Click on Profile Link
+		cleartext.clickchangebtn();  //3. Click on Change button
 		Thread.sleep(2000);
-		cleartext.clearfullnametxt();
+		cleartext.clearfullnametxt();  //4. clear Full name text box
 		Thread.sleep(2000);
-		cleartext.clearfullnametxt("admini");
-		cleartext.savebutton();
-		Thread.sleep(2000);
-		String actual_msg = driver.switchTo().alert().getText();
-		System.out.println("Alert message is:" + actual_msg);
-		driver.switchTo().alert().accept();
-		Assert.assertEquals(actual_msg, "Profile modified");
+		cleartext.clearfullnametxt("admini"); //4. Enter valid credentials in Full name text box
+		cleartext.savebutton();   //5. Click on submit button
+		/*
+		 * Thread.sleep(2000); String actual_msg = driver.switchTo().alert().getText();
+		 * System.out.println("Alert message is:" + actual_msg);
+		 * driver.switchTo().alert().accept(); //6. Click OK button of pop up window
+		 * Assert.assertEquals(actual_msg, "Profile modified");
+		 */
 		screenShot.captureScreenShot("Fourth");
 
 	}

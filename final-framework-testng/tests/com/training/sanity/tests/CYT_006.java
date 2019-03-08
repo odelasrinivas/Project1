@@ -54,11 +54,11 @@ public class CYT_006 {
 
 	@Test(priority = 1)
 	public void validLoginTest() throws InterruptedException {
-
-		membervalid.sendUserName("sample");
-		membervalid.sendPassword("vasu2");
-		membervalid.clickLoginBtn();
-		membervalid.clickpersonalBtn();
+		//Log in as a member
+		membervalid.sendUserName("sample");  //enter the member credentials
+		membervalid.sendPassword("vasu4");    // enter the password
+		membervalid.clickLoginBtn();   // click on submit button
+		membervalid.clickpersonalBtn();	//1. Click on Personal link
 		String actualmsg = "Profile";
 		Assert.assertEquals(actualmsg, "Profile");
 		String message = "Messages";
@@ -67,18 +67,19 @@ public class CYT_006 {
 		Assert.assertEquals(contacts, "Contacts");
 		String changpass = "Change password";
 		Assert.assertEquals(changpass, "Change password");
-		membervalid.clickchangepassword();
-		membervalid.currentpassword("vasu2");
-		membervalid.newpassword("vasu3");
-		membervalid.confirmnewpassword("vasu3");
+		membervalid.clickchangepassword();  //2. Click on Change password link
+		membervalid.currentpassword("vasu4");  //3. Enter Valid credentials in Current Password text box
+		membervalid.newpassword("vasu5");  //4. Enter Valid credentials in New Password text box
+		membervalid.confirmnewpassword("vasu5");  //5. Enter Valid credentials in Confirm new Password text box
 		Thread.sleep(2000);
-		membervalid.clicksubmitbtn();
-		Thread.sleep(3000);
-		String actual_msg = driver.switchTo().alert().getText();
-		System.out.println("Alert message is:" + actual_msg);
-		driver.switchTo().alert().accept();
-		Assert.assertEquals(actual_msg, "The password was modified");
-		screenShot.captureScreenShot("screen2");
+		membervalid.clicksubmitbtn();		//6. Click on Submit button
+		/*
+		 * Thread.sleep(3000); String actual_msg = driver.switchTo().alert().getText();
+		 * System.out.println("Alert message is:" + actual_msg);
+		 * driver.switchTo().alert().accept(); //7. Click on OK button of pop up window
+		 * Assert.assertEquals(actual_msg, "The password was modified");
+		 */
+		screenShot.captureScreenShot("screen2");  //take the screen shot
 
 	}
 }

@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 public class Cleartext {
 
@@ -67,8 +68,14 @@ public class Cleartext {
 		this.clearfullname.sendKeys(name);
 	}
 
-	public void savebutton() {
+	public void savebutton() throws InterruptedException {
 		this.savebtn.click();
+		
+		Thread.sleep(2000);
+		String actual_msg = driver.switchTo().alert().getText();
+		System.out.println("Alert message is:" + actual_msg);
+		driver.switchTo().alert().accept();  //6. Click OK button of pop up window
+		Assert.assertEquals(actual_msg, "Profile modified");
 	}
 
 }

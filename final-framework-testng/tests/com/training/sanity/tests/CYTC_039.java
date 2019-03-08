@@ -1,3 +1,4 @@
+//To verify whether application allows member to view repayment of Loan in account information module
 package com.training.sanity.tests;
 
 import java.io.FileInputStream;
@@ -56,8 +57,8 @@ public class CYTC_039 {
 	public void repay() throws InterruptedException {
 		
 		//Member login
-		repay.txtsendusername("sample"); //enter the member user name
-		repay.txtsendpassword("vasu3"); //enter the password
+		repay.txtsendusername("Anjaiah"); //enter the member user name
+		repay.txtsendpassword("anjaiah"); //enter the password
 		repay.Btnsubmit();				//click on submit button
 		repay.tabaccount();	//1. Click on Account tab
 		repay.linkloans();	//2. Click on Loans link

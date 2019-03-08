@@ -3,14 +3,14 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.training.sanity.tests.CYTC_039">
+      <class name="com.training.sanity.tests.CYTC_069">
         <methods>
           <include name="setUp"/>
-          <include name="setUpBeforeClass"/>
           <include name="tearDown"/>
-          <include name="repay"/>
+          <include name="setUpBeforeClass"/>
+          <include name="loginDBTest" invocation-numbers="0"/>
         </methods>
-      </class> <!-- com.training.sanity.tests.CYTC_039 -->
+      </class> <!-- com.training.sanity.tests.CYTC_069 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

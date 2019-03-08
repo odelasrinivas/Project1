@@ -1,5 +1,7 @@
 package com.training.pom;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -69,13 +71,32 @@ public class Account {
 	 //--------------------------------------
 	 public void tabmemberpayment() {
 		 this.tabmemberpayment.click();
-	 }
+	}
 	 
 	 public void txtlogin(String text) {
-	this.txtlogin.sendKeys(text);
+	//this.txtlogin.sendKeys(text);
 
+	 //3. Enter valid credentials in Login(recipient) textbox
+	 driver.findElement(By.id("memberUsername")).sendKeys("selenium");
+	 driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+	  // Create object on Actions class
+	  Actions builder=new Actions(driver);
+
+	  // find the element which we want to Select from auto suggestion
+	  WebElement ele=driver.findElement(By.xpath("//div[@id='membersByUsername']/ul/li[2]"));
+
+	  // use Mouse hover action for that element
+	  builder.moveToElement(ele).build().perform();
+
+	  // Give wait for 2 seconds 
+	  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+	  // finally click on that element
+	  builder.click(ele).build().perform();
 	
-	 }
+	  //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	}
 	 
 	 public void txtamount(String text1) {
 		 this.txtamount.sendKeys(text1);

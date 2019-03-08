@@ -42,22 +42,25 @@ public class Repay {
 	 
 	 
 	 
-	 
+	//enter the member user name
 	 public void txtsendusername(String userName) {
 		 this.txtuserName.clear();
 		 this.txtuserName.sendKeys(userName);
 	 }
+	//enter the password
 	 public void txtsendpassword(String password) {
 		 this.txtpassword.clear();
 		 this.txtpassword.sendKeys(password);
 	 }
+	//click on submit button
 	 public void Btnsubmit() {
 		 this.Btnsubmit.click();
 	 }
+	//1. Click on Account tab
 	 public void tabaccount() {
 			this.tabaccount.click();
 		}
-		
+	//2. Click on Loans link
 		public void linkloans() {
 			this.linkloans.click();
 			
@@ -67,15 +70,16 @@ public class Repay {
 			System.out.println(Actual_msg);
 			
 		}
-		
+		//3. Click on View icon
 	 public void viewicon() {
 		 this.viewicon.click();
 	 }
-	 
+	//4. Enter Valid credentials in Amount text box
 	 public void txtamount(String text) {
 		 this.txtamount.clear();
 		 this.txtamount.sendKeys(text);
 	}
+	//5. Click on Repay button
 	 public void buttonrepay() throws InterruptedException {
 		 this.buttonrepay.click();
 		 
@@ -114,6 +118,7 @@ public class Repay {
 			Assert.assertEquals(actual_msg1, "The repayment was succesfully processed");
 			
 	 }
+	//9. Click on Account Information link
 	 public void accountinformation() {
 		 this.accountinformation.click();
 		 

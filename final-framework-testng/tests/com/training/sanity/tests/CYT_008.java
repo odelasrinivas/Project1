@@ -55,17 +55,17 @@ public class CYT_008 {
 	@Test(priority = 1)
 	// @Test(dependsOnMethods= {"validLoginTest"})
 	public void adminvalidLoginTest() throws InterruptedException {
-		adminvalid.sendUserName("admin");
-		adminvalid.sendPassword("123456");
-		adminvalid.clickLoginBtn();
-		adminvalid.clicklogoutbtn();
-		Thread.sleep(3000);
-		String actual_msg = driver.switchTo().alert().getText();
-		System.out.println("Alert message is:" + actual_msg);
-		driver.switchTo().alert().accept();
-
-		Assert.assertEquals(actual_msg, "Please confirm to logout");
-
+		adminvalid.sendUserName("admin");  //1. Enter valid credentials in Login name textbox
+		adminvalid.sendPassword("123456");  //2. Enter valid credentials in Password textbox
+		adminvalid.clickLoginBtn();  //3. Click on Submit button
+		adminvalid.clicklogoutbtn();  //4. Click on Logout link
+		
+		/*
+		 * Thread.sleep(3000); String actual_msg = driver.switchTo().alert().getText();
+		 * System.out.println("Alert message is:" + actual_msg);
+		 * driver.switchTo().alert().accept(); //5. Click on OK button
+		 * Assert.assertEquals(actual_msg, "Please confirm to logout");
+		 */
 		screenShot.captureScreenShot("Screen3");
 	}
 }

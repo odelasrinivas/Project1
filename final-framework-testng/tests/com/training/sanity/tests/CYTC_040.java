@@ -1,3 +1,4 @@
+//To verify whether application allows member to view message sent by the admin
 package com.training.sanity.tests;
 
 import static org.testng.Assert.assertEquals;
@@ -67,22 +68,24 @@ public class CYTC_040 {
 		message.Messages();		//select the Messages tab on LHE
 		message.Messageslink(); //Select the Messageslink under Message tab
 		message.Messagelistsubmit();  //3. Click on Submit button of Send a new message
-
 		String ExpectedResult1 = "Send message";
 		String ActualResult1 = driver.findElement(By.xpath("//td[@class='tdHeaderTable']")).getText();
 		Assert.assertEquals(ActualResult1, ExpectedResult1);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		message.Memebrlogin("manzoor");    //4. Enter valid credentials in Member login text box
-		Thread.sleep(2000);
+		//Thread.sleep(2000);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		message.Subjecttext("hello");  //6. Enter valid credentials in Subject textbox
 		driver.switchTo().frame(0); // Frame is selected under Description box
 		message.Description("Welcome"); //7. enter description in Body Textbox
 		driver.switchTo().defaultContent(); // come out from the frame
 		message.sendmessagesubmit();  //8. Click on Submit button
 		message.Logout();  		//10. Click on Logout button
-		message.LoginName("sample");  //12. Enter valid member name in Login Name
-		message.Password("vasu3");  //13. Enter valid credentials in password textbox
+		message.LoginName("Anjaiah");  //12. Enter valid member name in Login Name
+		message.Password("anjaiah");  //13. Enter valid credentials in password textbox
 		message.Submit();   //14. click on Submit button
+		//Thread.sleep(2000);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		String ExpectedResult3 = "Logged user: sample - sample";
 		String ActualResult3 = driver.findElement(By.xpath("//span[contains(text(),'Logged user: sample - sample')]")).getText();
 		Assert.assertEquals(ActualResult3, ExpectedResult3);
